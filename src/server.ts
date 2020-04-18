@@ -30,13 +30,9 @@ const onListening = (): void => {
 };
 
 (async (): Promise<void> => {
-  try {
-    server.listen(port);
-    server.on('error', onError);
-    server.on('listening', onListening);
-  } catch (err) {
-    throw err;
-  }
+  server.listen({ a: port });
+  server.on('error', onError);
+  server.on('listening', onListening);
 })().catch((err) => {
   console.error(err);
 });
