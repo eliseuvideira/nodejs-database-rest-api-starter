@@ -5,6 +5,6 @@ interface ObjectWithAnyProps {
 
 declare namespace Express {
   export interface Request {
-    token: ObjectWithAnyProps;
+    token: ObjectWithAnyProps | undefined;
   }
 }
