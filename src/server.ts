@@ -13,13 +13,14 @@ const onError = <T extends { syscall: string; code: string }>(err: T): void => {
   switch (err.code) {
     case 'EACCES':
       console.error(`Port ${port} requires elevated privileges`);
-      process.exit(1);
+      break;
     case 'EADDRINUSE':
       console.error(`Port ${port} is already in use`);
-      process.exit(1);
+      break;
     default:
-      throw err;
+      console.error(err);
   }
+  process.exit(1);
 };
 
 const onListening = (): void => {
