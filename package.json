@@ -32,7 +32,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node-dev --no-notify src/server.ts",
+    "format": "prettier --write src/**/*.ts",
     "lint": "eslint **/*.ts",
-    "format": "prettier --write src/**/*.ts"
+    "start": "node build/server.js"
   }
 }
