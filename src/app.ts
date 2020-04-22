@@ -12,6 +12,11 @@ app.use(cors());
 app.use(json());
 app.use(morgan('combined'));
 
+app.use('/robots.txt', (req, res) =>
+  res.status(200).send('User-agent: *\nDisallow: /'),
+);
+app.use('/favicon.ico', (req, res) => res.status(404).end());
+
 const routes = readdirSync(join(__dirname, 'routes'));
 for (const route of routes) {
   app.use(require(join(__dirname, 'routes', route)).default);
