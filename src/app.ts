@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 app.use(json());
-app.use(morgan('short'));
+app.use(morgan('combined'));
 
 const routes = readdirSync(join(__dirname, 'routes'));
 for (const route of routes) {

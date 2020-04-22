@@ -1,3 +1,9 @@
+import { loadEnv } from './utils/loadEnv';
+
+loadEnv();
+
+console.info(`NODE_ENV is set to ${process.env.NODE_ENV}`)
+
 import http from 'http';
 import app from './app';
 
