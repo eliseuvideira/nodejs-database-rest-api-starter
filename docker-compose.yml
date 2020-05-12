@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  api-network:
+
+services:
+  api:
+    build: '.'
+    container_name: '${CONTAINER_NAME}'
+    ports:
+      - '${PORT}:${PORT}'
+    networks:
+      - 'api-network'
+    restart: 'always'
+    environment:
+      - 'NODE_ENV=production'
+      - 'PORT=${PORT}'
