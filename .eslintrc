@@ -9,7 +9,12 @@
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
-    ]
+    ],
+    "@typescript-eslint/interface-name-prefix": [
+      "error",
+      { "prefixWithI": "always" }
+    ],
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2018,
