@@ -5,13 +5,12 @@ networks:
 
 services:
   api:
-    build: '.'
-    container_name: '${CONTAINER_NAME}'
+    build: .
     ports:
-      - '${PORT}:${PORT}'
+      - $PORT:$PORT
     networks:
-      - 'api-network'
-    restart: 'always'
+      - api-network
+    restart: always
     environment:
-      - 'NODE_ENV=production'
-      - 'PORT=${PORT}'
+      - NODE_ENV=production
+      - PORT=$PORT
