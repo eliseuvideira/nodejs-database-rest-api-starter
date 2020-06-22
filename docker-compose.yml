@@ -6,11 +6,11 @@ networks:
 services:
   api:
     build: .
-    ports:
-      - $PORT:$PORT
-    networks:
-      - api-network
-    restart: always
     environment:
       - NODE_ENV=production
       - PORT=$PORT
+    networks:
+      - api-network
+    ports:
+      - $PORT:$PORT
+    restart: always
