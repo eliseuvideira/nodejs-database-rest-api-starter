@@ -1,6 +1,6 @@
-import { loadEnv } from './utils/loadEnv';
+import dotenv from 'dotenv-safe';
 
-loadEnv();
+dotenv.config();
 
 console.info(`NODE_ENV is set to ${process.env.NODE_ENV}`);
 
