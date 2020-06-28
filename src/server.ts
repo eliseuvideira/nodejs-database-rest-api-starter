@@ -6,6 +6,7 @@ console.info(`NODE_ENV is set to ${process.env.NODE_ENV}`);
 
 import http from 'http';
 import app from './app';
+import { database } from './utils/database';
 
 const port = process.env.PORT;
 app.set('port', port);
@@ -37,6 +38,7 @@ const onListening = (): void => {
 };
 
 (async (): Promise<void> => {
+  await database.raw('SELECT 1 AS server_status');
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
