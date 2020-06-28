@@ -1,12 +1,31 @@
 import { RequestHandler } from 'express';
-import { Customer } from '../models/Customer';
+import { Customer, ICustomer } from '../models/Customer';
 import { database } from '../utils/database';
 import { HttpError } from '../utils/HttpError';
+import { searchQuery } from '../utils/searchQuery';
+import { SearchQueryFields } from '../utils/createSchemaSearch';
 
 export const getCustomers: RequestHandler = async (req, res, next) => {
   try {
-    const customers = await Customer.find(database);
-    res.status(200).json({ customers });
+    const {
+      page,
+      perPage,
+      search,
+      sort,
+    } = (req.query as unknown) as SearchQueryFields<ICustomer>;
+    const [customers, reflection] = await searchQuery(
+      Customer,
+      database,
+      {
+        page,
+        perPage,
+        search,
+        sort,
+      },
+      ['customerId', 'customerCreatedAt', 'customerUpdatedAt'],
+      ['customerName'],
+    );
+    res.status(200).json({ customers, reflection });
   } catch (err) {
     next(err);
   }

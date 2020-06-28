@@ -33,7 +33,7 @@ type ModelUpdateOne<T> = (database: Knex, model: T) => Promise<T>;
 
 type ModelDeleteOne<T> = (database: Knex, model: T) => Promise<void>;
 
-type Model<T> = {
+export type Model<T> = {
   find: ModelFind<T>;
   findOne: ModelFindOne<T>;
   count: ModelCount<T>;
