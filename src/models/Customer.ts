@@ -3,6 +3,8 @@ import { createModel } from '../utils/createModel';
 export interface ICustomer {
   customerId?: number;
   customerName: string;
+  customerCreatedAt?: Date;
+  customerUpdatedAt?: Date;
 }
 
 export const Customer = createModel<ICustomer>(
@@ -10,4 +12,16 @@ export const Customer = createModel<ICustomer>(
   ({ customerId }) => ({
     customerId,
   }),
+  {
+    ignoreInsertFields: [
+      'customerId',
+      'customerCreatedAt',
+      'customerUpdatedAt',
+    ],
+    ignoreUpdateFields: [
+      'customerId',
+      'customerCreatedAt',
+      'customerUpdatedAt',
+    ],
+  },
 );
