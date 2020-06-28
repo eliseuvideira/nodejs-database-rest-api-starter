@@ -1,8 +1,11 @@
 import { camelToSnake } from './toSnake';
 
-export const getOrderBy = (
-  sort: string,
-): { column: string; order: 'asc' | 'desc' }[] => {
+export interface OrderByField {
+  column: string;
+  order: 'asc' | 'desc';
+}
+
+export const getOrderBy = (sort: string): OrderByField[] => {
   const columns: {
     [key: string]: string;
   } = sort.split(',').reduce(

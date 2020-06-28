@@ -1,11 +1,18 @@
 import Knex from 'knex';
-import { toSnake } from './toSnake';
+import { toSnake, camelToSnake } from './toSnake';
 import { toCamel } from './toCamel';
 import { removeKeys } from './removeKeys';
+import { OrderByField, orderByToSnake } from './getOrderBy';
 
 type ModelFind<T> = (
   database: Knex,
   filter?: Partial<T> | null,
+  filterOptions?: {
+    page: number;
+    perPage: number;
+    orderBy: OrderByField[];
+    likeFields?: Partial<T>;
+  } | null,
   modify?: ((builder: Knex.QueryBuilder) => void) | null,
 ) => Promise<T[]>;
 
@@ -53,13 +60,38 @@ const createFind = <T>(
 ): ModelFind<T> => async (
   database: Knex,
   filter: Partial<T> | null = null,
+  filterOptions: {
+    page: number;
+    perPage: number;
+    orderBy: OrderByField[];
+    likeFields?: Partial<T>;
+  } | null = null,
   modify: ((builder: Knex.QueryBuilder) => void) | null = null,
 ): Promise<T[]> => {
   const rows: any[] = await database
     .from(table)
     .where(toSnake(filter || {}))
-    // eslint-disable-next-line
-    .modify(modify || (() => {}));
+    .modify((builder) => {
+      if (modify) {
+        modify(builder);
+      }
+      if (filterOptions) {
+        const { perPage, page, orderBy, likeFields } = filterOptions;
+        builder
+          .limit(perPage)
+          .offset((page - 1) * perPage)
+          .orderBy(orderByToSnake(orderBy));
+        if (likeFields) {
+          Object.keys(likeFields).forEach((key) =>
+            builder.andWhere(
+              camelToSnake(key),
+              'like',
+              `%${likeFields[key as keyof T]}%`,
+            ),
+          );
+        }
+      }
+    });
   return rows.map((row) =>
     removeKeys(
       toCamel(row),

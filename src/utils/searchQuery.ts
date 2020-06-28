@@ -1,15 +1,13 @@
 import { Model } from './createModel';
 import { SearchQueryFields } from './createSchemaSearch';
-import { toSnake, camelToSnake } from './toSnake';
-import { removeUndefined } from './removeUndefined';
-import { orderByToSnake, getOrderBy } from './getOrderBy';
+import { getOrderBy, OrderByField } from './getOrderBy';
 import Knex from 'knex';
 
 export interface Reflection<T> {
   page: number;
   perPage: number;
   search: Partial<T>;
-  sort: { column: string; order: 'asc' | 'desc' }[];
+  sort: OrderByField[];
 }
 
 export const searchQuery = <T>(
@@ -32,38 +30,28 @@ export const searchQuery = <T>(
       : {},
     sort: orderBy,
   };
-  // TODO: move filter, limit, offset and orderBy logic to model
-  const modelItems = ModelClass.find(database, null, (builder) => {
-    if (search) {
-      if (searchFields.length) {
-        builder.andWhere(
-          toSnake(
-            removeUndefined(
-              searchFields.reduce(
-                (prev, key) =>
-                  search[key] != null ? { ...prev, [key]: search[key] } : prev,
-                {} as Partial<T>,
-              ),
-            ),
-          ),
-        );
-      }
-      if (likeFields.length) {
-        likeFields.forEach(
-          (field) =>
-            search[field] != null &&
-            builder.andWhere(
-              camelToSnake(field as string),
-              'like',
-              `%${search[field]}%`,
-            ),
-        );
-      }
-    }
-    builder
-      .limit(perPage)
-      .offset((page - 1) * perPage)
-      .orderBy(orderByToSnake(orderBy));
-  });
+  const modelItems = ModelClass.find(
+    database,
+    search
+      ? searchFields.reduce(
+          (prev, key) =>
+            search[key] != null ? { ...prev, [key]: search[key] } : prev,
+          {} as Partial<T>,
+        )
+      : null,
+    {
+      page,
+      perPage,
+      orderBy,
+      likeFields:
+        search &&
+        likeFields.reduce(
+          (prev, key) =>
+            search[key] != null ? { ...prev, [key]: search[key] } : prev,
+          {} as Partial<T>,
+        ),
+    },
+    null,
+  );
   return Promise.all([modelItems, Promise.resolve(reflection)]);
 };
