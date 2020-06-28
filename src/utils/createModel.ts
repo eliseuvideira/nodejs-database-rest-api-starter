@@ -61,7 +61,10 @@ const createFind = <T>(
     // eslint-disable-next-line
     .modify(modify || (() => {}));
   return rows.map((row) =>
-    removeKeys(toCamel(row), options?.ignoreSelectFields),
+    removeKeys(
+      toCamel(row),
+      (options && options.ignoreSelectFields) || undefined,
+    ),
   );
 };
 
@@ -86,7 +89,10 @@ const createFindOne = <T>(
   if (!row) {
     return null;
   }
-  return removeKeys(toCamel(row), options?.ignoreSelectFields);
+  return removeKeys(
+    toCamel(row),
+    (options && options.ignoreSelectFields) || undefined,
+  );
 };
 
 const createCount = <T>(table: string) => async (
@@ -124,9 +130,17 @@ const createInsertOne = <T>(
 ): ModelInsertOne<T> => async (database: Knex, model: T): Promise<T> => {
   const [savedModel] = await database
     .from(table)
-    .insert(removeKeys(toSnake(model), options?.ignoreInsertFields))
+    .insert(
+      removeKeys(
+        toSnake(model),
+        (options && options.ignoreInsertFields) || undefined,
+      ),
+    )
     .returning('*');
-  return removeKeys(toCamel(savedModel), options?.ignoreSelectFields);
+  return removeKeys(
+    toCamel(savedModel),
+    (options && options.ignoreSelectFields) || undefined,
+  );
 };
 
 interface CreateUpdateOneOptions<T> {
@@ -141,10 +155,18 @@ const createUpdateOne = <T>(
 ): ModelUpdateOne<T> => async (database: Knex, model: T): Promise<T> => {
   const [savedModel] = await database
     .from(table)
-    .update(removeKeys(toSnake(model), options?.ignoreUpdateFields))
+    .update(
+      removeKeys(
+        toSnake(model),
+        (options && options.ignoreUpdateFields) || undefined,
+      ),
+    )
     .where(toSnake(getWhere(model)))
     .returning('*');
-  return removeKeys(toCamel(savedModel), options?.ignoreSelectFields);
+  return removeKeys(
+    toCamel(savedModel),
+    (options && options.ignoreSelectFields) || undefined,
+  );
 };
 
 const createDeleteOne = <T>(
@@ -170,35 +192,39 @@ export const createModel = <T>(
 ): Model<T> => {
   const find = createFind<T>(
     table,
-    (options?.ignoreSelectFields && {
-      ignoreSelectFields: options.ignoreSelectFields,
-    }) ||
+    (options &&
+      options.ignoreSelectFields && {
+        ignoreSelectFields: options.ignoreSelectFields,
+      }) ||
       null,
   );
   const findOne = createFindOne<T>(
     table,
-    (options?.ignoreSelectFields && {
-      ignoreSelectFields: options.ignoreSelectFields,
-    }) ||
+    (options &&
+      options.ignoreSelectFields && {
+        ignoreSelectFields: options.ignoreSelectFields,
+      }) ||
       null,
   );
   const count = createCount<T>(table);
   const exists = createExists<T>(count);
   const insertOne = createInsertOne<T>(
     table,
-    (options?.ignoreSelectFields && {
-      ignoreSelectFields: options.ignoreSelectFields,
-      ignoreInsertFields: options.ignoreInsertFields,
-    }) ||
+    (options &&
+      options.ignoreSelectFields && {
+        ignoreSelectFields: options.ignoreSelectFields,
+        ignoreInsertFields: options.ignoreInsertFields,
+      }) ||
       null,
   );
   const updateOne = createUpdateOne<T>(
     table,
     getWhere,
-    (options?.ignoreSelectFields && {
-      ignoreSelectFields: options.ignoreSelectFields,
-      ignoreUpdateFields: options.ignoreUpdateFields,
-    }) ||
+    (options &&
+      options.ignoreSelectFields && {
+        ignoreSelectFields: options.ignoreSelectFields,
+        ignoreUpdateFields: options.ignoreUpdateFields,
+      }) ||
       null,
   );
   const deleteOne = createDeleteOne<T>(table, getWhere);

@@ -6,7 +6,7 @@ export interface ICustomer {
 }
 
 export const Customer = createModel<ICustomer>(
-  'customer',
+  'customers',
   ({ customerId }) => ({
     customerId,
   }),
