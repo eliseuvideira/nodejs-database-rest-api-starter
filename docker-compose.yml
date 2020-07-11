@@ -5,12 +5,16 @@ networks:
 
 services:
   api:
-    build: .
+    build:
+      context: .
+      args:
+        - PORT=$PORT
     depends_on:
       - postgres
     environment:
       - NODE_ENV=production
       - PORT=$PORT
+      - JWT_SECRET=$JWT_SECRET
       - POSTGRES_HOST=$POSTGRES_HOST
       - POSTGRES_USER=$POSTGRES_USER
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
