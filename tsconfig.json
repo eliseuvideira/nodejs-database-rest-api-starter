@@ -11,5 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["node_modules", "database", "build"],
+  "include": ["src"]
 }
