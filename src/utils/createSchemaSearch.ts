@@ -38,7 +38,7 @@ export const createSchemaSearch = <T>(
             )})(:(asc|desc))?)*$`,
           ),
         )
-        .default(sortFields[0]),
+        .default(sortFields[0] as string),
     })
     .required();
 };
