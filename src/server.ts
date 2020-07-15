@@ -4,6 +4,11 @@ dotenv.config();
 
 console.info(`NODE_ENV is set to ${process.env.NODE_ENV}`);
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { version } = require('../package.json');
+
+console.info(`version ${version}`);
+
 import http from 'http';
 import app from './app';
 import { database } from './utils/database';
