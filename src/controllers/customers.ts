@@ -1,35 +1,20 @@
 import { RequestHandler } from 'express';
-import { Customer, ICustomer } from '../models/Customer';
+import { Customer, customerSearchQuery } from '../models/Customer';
 import { database } from '../utils/database';
 import { HttpError } from '../utils/HttpError';
-import { searchQuery } from '../utils/searchQuery';
-import { SearchQueryFields } from '../utils/createSchemaSearch';
 
 export const getCustomers: RequestHandler = async (req, res, next) => {
   try {
-    const {
-      page,
-      perPage,
-      search,
-      sort,
-    } = (req.query as unknown) as SearchQueryFields<ICustomer>;
-    const [customers, reflection] = await searchQuery(
-      Customer,
+    const [customers, filter, pagination] = await customerSearchQuery(
+      req.query,
       database,
-      {
-        page,
-        perPage,
-        search,
-        sort,
-      },
-      ['customerId', 'customerCreatedAt', 'customerUpdatedAt'],
-      ['customerName'],
     );
-    res.status(200).json({ customers, reflection });
+    res.status(200).json({ customers, filter, pagination });
   } catch (err) {
     next(err);
   }
 };
+
 export const postCustomers: RequestHandler = async (req, res, next) => {
   try {
     const customerData = req.body;

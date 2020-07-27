@@ -1,17 +1,13 @@
-import { createSchemaSearch } from '../utils/createSchemaSearch';
-import { ICustomer } from '../models/Customer';
+import { createSchema, createSchemaSearch } from '../utils/createSchema';
+import { ICustomer, Customer } from '../models/Customer';
 import Joi from 'joi';
-import { createSchema } from '../utils/createSchema';
 
-export const getCustomersQuery = createSchemaSearch<ICustomer>(
-  {
-    customerId: Joi.number().integer(),
-    customerName: Joi.string(),
-    customerCreatedAt: Joi.date(),
-    customerUpdatedAt: Joi.date(),
-  },
-  ['customerId', 'customerName', 'customerCreatedAt', 'customerUpdatedAt'],
-);
+export const getCustomersQuery = createSchemaSearch<ICustomer>(Customer, {
+  customerId: Joi.number().integer(),
+  customerName: Joi.string(),
+  customerCreatedAt: Joi.date(),
+  customerUpdatedAt: Joi.date(),
+});
 
 export const postCustomersBody = createSchema<ICustomer>({
   customerName: Joi.string().required(),
