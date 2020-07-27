@@ -1,4 +1,4 @@
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 
 const MAX_PER_PAGE = 50;
 
@@ -16,7 +16,7 @@ export type SearchQueryFields<T> = {
 export const createSchemaSearch = <T>(
   search: SearchProps<Partial<T>>,
   sortFields: (keyof T)[],
-): Joi.ObjectSchema<any> => {
+): Joi.ObjectSchema => {
   if (sortFields.length === 0) {
     throw new Error("'sortFields' parameter must have at least one value");
   }

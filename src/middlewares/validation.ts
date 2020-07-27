@@ -1,4 +1,4 @@
-import { ObjectSchema } from '@hapi/joi';
+import { ObjectSchema } from 'joi';
 import { RequestHandler } from 'express';
 import { HttpError } from '../utils/HttpError';
 

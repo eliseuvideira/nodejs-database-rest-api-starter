@@ -1,6 +1,6 @@
 import { createSchemaSearch } from '../utils/createSchemaSearch';
 import { ICustomer } from '../models/Customer';
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 import { createSchema } from '../utils/createSchema';
 
 export const getCustomersQuery = createSchemaSearch<ICustomer>(

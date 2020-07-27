@@ -1,4 +1,4 @@
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 
 type SchemaProps<T> = {
   [key in keyof T]: Joi.Schema;
@@ -6,6 +6,4 @@ type SchemaProps<T> = {
 
 export const createSchema = <T>(
   props: SchemaProps<Partial<T>>,
-): Joi.ObjectSchema<any> => {
-  return Joi.object().keys(props).required();
-};
+): Joi.ObjectSchema => Joi.object().keys(props).required();
