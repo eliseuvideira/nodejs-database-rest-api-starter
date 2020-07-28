@@ -2,20 +2,20 @@ import { createModel, createSearchQuery } from '../utils/createModel';
 
 export interface ICustomer {
   customerId?: number;
-  customerName: string;
-  customerCreatedAt?: Date;
-  customerUpdatedAt?: Date;
+  name: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export const Customer = createModel<ICustomer>(
   'customers',
-  ['customerId', 'customerName', 'customerCreatedAt', 'customerUpdatedAt'],
+  ['customerId', 'name', 'createdAt', 'updatedAt'],
   ({ customerId }) => ({
     customerId,
   }),
   {
-    insert: ['customerId', 'customerCreatedAt', 'customerUpdatedAt'],
-    update: ['customerId', 'customerCreatedAt', 'customerUpdatedAt'],
+    insert: ['customerId', 'createdAt', 'updatedAt'],
+    update: ['customerId', 'createdAt', 'updatedAt'],
   },
 );
 

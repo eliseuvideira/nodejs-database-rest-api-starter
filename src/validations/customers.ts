@@ -4,13 +4,13 @@ import Joi from 'joi';
 
 export const getCustomersQuery = createSchemaSearch<ICustomer>(Customer, {
   customerId: Joi.number().integer(),
-  customerName: Joi.string(),
-  customerCreatedAt: Joi.date(),
-  customerUpdatedAt: Joi.date(),
+  name: Joi.string(),
+  createdAt: Joi.date(),
+  updatedAt: Joi.date(),
 });
 
 export const postCustomersBody = createSchema<ICustomer>({
-  customerName: Joi.string().required(),
+  name: Joi.string().required(),
 });
 
 export const getCustomerParams = createSchema<ICustomer>({
@@ -18,5 +18,5 @@ export const getCustomerParams = createSchema<ICustomer>({
 });
 
 export const putCustomerBody = createSchema<ICustomer>({
-  customerName: Joi.string().required(),
+  name: Joi.string().required(),
 });

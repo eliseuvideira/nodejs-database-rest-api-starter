@@ -16,13 +16,13 @@ $$ LANGUAGE "plv8";
 
 CREATE TABLE customers (
   customer_id SERIAL,
-  customer_name VARCHAR NOT NULL,
-  customer_created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  customer_updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  name VARCHAR NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT pk_customers_customer_id PRIMARY KEY (customer_id)
 );
 
 CREATE TRIGGER customers_set_updated_at
 BEFORE UPDATE ON customers
 FOR EACH ROW
-EXECUTE PROCEDURE set_updated_at('customer_updated_at');
+EXECUTE PROCEDURE set_updated_at('updated_at');
