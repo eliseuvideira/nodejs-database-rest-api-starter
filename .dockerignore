@@ -1,6 +1,6 @@
 .git
 build
-database/core
+database/
 node_modules
 .env
 docker-compose.yml
