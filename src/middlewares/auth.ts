@@ -17,7 +17,7 @@ const verifyToken = (token: string, secret: string): Record<string, any> => {
   return data;
 };
 
-export const isAuth: RequestHandler = (req, res, next) => {
+export const auth: RequestHandler = (req, res, next) => {
   try {
     const auth = req.get('Authorization');
     if (!auth || !auth.startsWith('Bearer ')) {
