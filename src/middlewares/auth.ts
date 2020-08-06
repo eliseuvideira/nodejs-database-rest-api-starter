@@ -2,12 +2,13 @@ import { RequestHandler } from 'express';
 import { HttpError } from '../utils/HttpError';
 import { decode } from '../utils/jwt';
 
-const SLICE_LENGTH = `Bearer `.length;
+const TOKEN_PREFIX = 'Bearer ';
+const SLICE_LENGTH = TOKEN_PREFIX.length;
 
 export const auth: RequestHandler = async (req, res, next) => {
   try {
     const { authorization: auth } = req.headers;
-    if (!auth || !auth.startsWith('Bearer ')) {
+    if (!auth || !auth.startsWith(TOKEN_PREFIX)) {
       res.set('WWW-Authenticate', 'Bearer');
       throw new HttpError(401, 'Unauthorized');
     }
