@@ -1,32 +1,19 @@
 import Knex from 'knex';
 
-interface Props {
-  host: string;
-  user: string;
-  password: string;
-  database: string;
-  poolMin?: number;
-  poolMax?: number;
-}
+const MIN_POOL = 2;
+const MAX_POOL = 20;
+
+type CreateDatabaseProps = Pick<Knex.Config, 'client' | 'connection'>;
 
 export const createDatabase = ({
-  host,
-  user,
-  password,
-  database,
-  poolMin,
-  poolMax,
-}: Props) =>
+  client = 'pg',
+  connection,
+}: CreateDatabaseProps) =>
   Knex({
-    client: 'pg',
-    connection: {
-      host,
-      user,
-      password,
-      database,
-    },
+    client,
+    connection,
     pool: {
-      min: poolMin || 2,
-      max: poolMax || 20,
+      min: MIN_POOL,
+      max: MAX_POOL,
     },
   });

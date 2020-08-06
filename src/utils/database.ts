@@ -1,10 +1,19 @@
 import { createDatabase } from './createDatabase';
+import {
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASSWORD,
+  DB_DATABASE,
+} from './constants';
 
 export const database = createDatabase({
-  host: process.env.POSTGRES_HOST || '',
-  user: process.env.POSTGRES_USER || '',
-  password: process.env.POSTGRES_PASSWORD || '',
-  database: process.env.POSTGRES_DB || '',
-  poolMin: +(process.env.POSTGRES_POOL_MIN || '2'),
-  poolMax: +(process.env.POSTGRES_POOL_MAX || '20'),
+  client: 'pg',
+  connection: {
+    host: DB_HOST,
+    port: DB_PORT || 5432,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_DATABASE,
+  },
 });
