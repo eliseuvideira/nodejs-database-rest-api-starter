@@ -1,4 +1,4 @@
-/node_modules/
-/build/
-/.env
-/database/data/
+database/data/
+build/
+node_modules/
+.env
