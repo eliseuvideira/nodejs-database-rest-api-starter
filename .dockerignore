@@ -1,7 +1,5 @@
-.git
-build
+.git/
+build/
 database/
-node_modules
+node_modules/
 .env
-docker-compose.yml
-Dockerfile
