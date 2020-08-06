@@ -23,6 +23,7 @@ app.use('/favicon.ico', (req, res) => res.status(404).end());
 
 const routes = readdirSync(join(__dirname, 'routes'));
 for (const route of routes) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   app.use(require(join(__dirname, 'routes', route)).default);
 }
 

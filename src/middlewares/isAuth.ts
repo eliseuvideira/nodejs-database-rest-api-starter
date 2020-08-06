@@ -1,9 +1,10 @@
 import { RequestHandler } from 'express';
 import { HttpError } from '../utils/HttpError';
 import { verify } from 'jsonwebtoken';
+import { JWT_SECRET } from '../utils/constants';
 
-const verifyToken = (token: string, secret: string): ObjectWithAnyProps => {
-  let data: string | object;
+const verifyToken = (token: string, secret: string): Record<string, any> => {
+  let data: string | Record<string, any>;
   try {
     data = verify(token, secret);
   } catch (err) {
@@ -16,14 +17,6 @@ const verifyToken = (token: string, secret: string): ObjectWithAnyProps => {
   return data;
 };
 
-const getSecret = (): string => {
-  const secret = process.env.JWT_SECRET;
-  if (!secret) {
-    throw new Error('JWT_SECRET not set');
-  }
-  return secret;
-};
-
 export const isAuth: RequestHandler = (req, res, next) => {
   try {
     const auth = req.get('Authorization');
@@ -32,8 +25,7 @@ export const isAuth: RequestHandler = (req, res, next) => {
       throw new HttpError(401, 'Unauthorized');
     }
     const token = auth.slice(7, auth.length);
-    const secret = getSecret();
-    req.token = verifyToken(token, secret);
+    req.token = verifyToken(token, JWT_SECRET);
     next();
   } catch (err) {
     next(err);
