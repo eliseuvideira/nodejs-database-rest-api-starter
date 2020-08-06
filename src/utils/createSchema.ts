@@ -23,7 +23,7 @@ const getLikeSchema = <T extends SchemaProps<Partial<T>>>(
   ignoreKeys: (keyof T)[] = [],
 ): Joi.Schema => {
   const invalidKeys = Object.keys(search).filter(
-    (key) => search[key as keyof T].schemaType !== 'string',
+    (key) => search[key as keyof T].type !== 'string',
   );
 
   return Joi.object().keys(
@@ -79,7 +79,7 @@ export const createSchemaSearch = <T>(
             )})(:(asc|desc))?)*$`,
           ),
         )
-        .default(sortFields[0]),
+        .default(`${sortFields[0]}:asc`),
       $eq: getEqSchema(search, ignoreKeys?.$eq),
       $like: getLikeSchema(search, ignoreKeys?.$like),
       $in: getInSchema(search, ignoreKeys?.$in),
