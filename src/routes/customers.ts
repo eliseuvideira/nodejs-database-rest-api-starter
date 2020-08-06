@@ -13,17 +13,19 @@ import {
   getCustomerParams,
   putCustomerBody,
 } from '../validations/customers';
+import { auth } from '../middlewares/auth';
 
 const router = Router();
 
 router.get('/customers', query(getCustomersQuery), getCustomers);
 
-router.post('/customers', body(postCustomersBody), postCustomers);
+router.post('/customers', auth, body(postCustomersBody), postCustomers);
 
 router.get('/customers/:customerId', params(getCustomerParams), getCustomer);
 
 router.put(
   '/customers/:customerId',
+  auth,
   params(getCustomerParams),
   body(putCustomerBody),
   putCustomer,
@@ -31,6 +33,7 @@ router.put(
 
 router.delete(
   '/customers/:customerId',
+  auth,
   params(getCustomerParams),
   deleteCustomer,
 );
