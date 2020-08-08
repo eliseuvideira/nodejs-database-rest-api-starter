@@ -16,6 +16,7 @@ services:
       - PORT=$PORT
       - JWT_SECRET=$JWT_SECRET
       - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
       - DB_USER=$DB_USER
       - DB_PASSWORD=$DB_PASSWORD
       - DB_DATABASE=$DB_DATABASE
@@ -27,8 +28,6 @@ services:
 
   postgres:
     image: clkao/postgres-plv8:12-2
-    ports:
-      - 5432:5432
     networks:
       - api_network
     restart: always
