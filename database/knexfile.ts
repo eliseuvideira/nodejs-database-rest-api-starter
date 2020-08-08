@@ -1,6 +1,10 @@
 import dotenv from 'dotenv-safe';
+import { resolve } from 'path';
 
-dotenv.config();
+dotenv.config({
+  path: resolve(__dirname, '..', '.env'),
+  example: resolve(__dirname, '..', '.env.example'),
+});
 
 module.exports = {
   development: {
@@ -9,6 +13,9 @@ module.exports = {
       filename: './database.sqlite3',
     },
     useNullAsDefault: true,
+    migrations: {
+      directory: 'migrations',
+    },
   },
   production: {
     client: 'pg',
@@ -25,6 +32,7 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
+      directory: 'migrations',
     },
   },
 };
