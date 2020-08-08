@@ -30,12 +30,14 @@ services:
     image: clkao/postgres-plv8:12-2
     networks:
       - api_network
-    restart: always
     environment:
       - PGDATA=/var/lib/postgresql/data
       - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
       - POSTGRES_DB=$DB_DATABASE
+    restart: always
+    ports:
+      - $DB_PORT:$DB_PORT
     volumes:
       - ./database/initdb.d:/docker-entrypoint-initdb.d
       - ./database/data:/var/lib/postgresql/data
