@@ -5,10 +5,7 @@ const MAX_POOL = 20;
 
 type CreateDatabaseProps = Pick<Knex.Config, 'client' | 'connection'>;
 
-export const createDatabase = ({
-  client = 'pg',
-  connection,
-}: CreateDatabaseProps) =>
+export const createDatabase = ({ client, connection }: CreateDatabaseProps) =>
   Knex({
     client,
     connection,

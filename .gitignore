@@ -2,4 +2,4 @@ database/data/
 build/
 node_modules/
 .env
-*.sqlite3
+coverage/

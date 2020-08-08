@@ -1,6 +1,6 @@
 .git/
 build/
+coverage/
 database/
 node_modules/
 .env
-*.sqlite3

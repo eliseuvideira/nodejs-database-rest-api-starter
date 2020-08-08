@@ -1,10 +1,10 @@
 import * as Knex from 'knex';
-import { serial, string, timestamps } from '../utils/columns';
+import { serial, text, timestamps } from '../database/utils/columns';
 
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('customers', (table) => {
     serial(table, 'customer_id').primary();
-    string(table, 'name');
+    text(table, 'name');
     timestamps(table, knex);
   });
 }

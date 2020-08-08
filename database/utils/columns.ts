@@ -1,14 +1,7 @@
 import Knex from 'knex';
-import { DATABASE_CLIENT } from './constants';
 
-export const string = (
-  table: Knex.CreateTableBuilder,
-  name: string,
-  length?: number | undefined,
-) =>
-  DATABASE_CLIENT === 'pg' && !length
-    ? table.text(name)
-    : table.string(name, length);
+export const text = (table: Knex.CreateTableBuilder, name: string) =>
+  table.text(name);
 
 export const serial = (table: Knex.CreateTableBuilder, name: string) =>
   table.increments(name);
