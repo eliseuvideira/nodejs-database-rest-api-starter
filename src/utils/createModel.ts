@@ -149,7 +149,7 @@ const createFind = <T>(
     .where(toSnake(getWhere(filter || {})))
     .modify(getModify(modify, filter));
   return rows.map((row) =>
-    removeKeys(toCamel(row), (ignoreKeys && ignoreKeys.select) || []),
+    removeKeys(toCamel(row) as T, (ignoreKeys && ignoreKeys.select) || []),
   );
 };
 
@@ -169,7 +169,7 @@ const createFindOne = <T>(
   if (!row) {
     return null;
   }
-  return removeKeys(toCamel(row), (ignoreKeys && ignoreKeys.select) || []);
+  return removeKeys(toCamel(row) as T, (ignoreKeys && ignoreKeys.select) || []);
 };
 
 const createCount = <T>(table: string): ModelCount<T> => async (
@@ -210,10 +210,12 @@ const createInsertOne = <T>(
 ): ModelInsertOne<T> => async (database: Knex, model: T): Promise<T> => {
   const [savedModel] = await database
     .from(table)
-    .insert(removeKeys(toSnake(model), (ignoreKeys && ignoreKeys.insert) || []))
+    .insert(
+      removeKeys(toSnake(model) as T, (ignoreKeys && ignoreKeys.insert) || []),
+    )
     .returning('*');
   return removeKeys(
-    toCamel(savedModel),
+    toCamel(savedModel) as T,
     (ignoreKeys && ignoreKeys.select) || [],
   );
 };
@@ -225,11 +227,13 @@ const createUpdateOne = <T>(
 ): ModelUpdateOne<T> => async (database: Knex, model: T): Promise<T> => {
   const [savedModel] = await database
     .from(table)
-    .update(removeKeys(toSnake(model), (ignoreKeys && ignoreKeys.update) || []))
+    .update(
+      removeKeys(toSnake(model) as T, (ignoreKeys && ignoreKeys.update) || []),
+    )
     .where(toSnake(getPrimaryKey(model)))
     .returning('*');
   return removeKeys(
-    toCamel(savedModel),
+    toCamel(savedModel) as T,
     (ignoreKeys && ignoreKeys.select) || [],
   );
 };
