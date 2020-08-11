@@ -1,4 +1,4 @@
-import { request } from '../utils/request';
+import { request } from '../request';
 
 describe('api-docs', () => {
   test('GET /api-docs', async () => {

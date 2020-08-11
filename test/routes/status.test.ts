@@ -1,5 +1,5 @@
-import './utils/fixture';
-import { request } from './utils/request';
+import '../fixture';
+import { request } from '../request';
 
 describe('status', () => {
   test('GET /status', async () => {

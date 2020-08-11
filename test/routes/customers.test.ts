@@ -1,7 +1,7 @@
-import './utils/fixture';
-import { request } from './utils/request';
-import { database } from '../src/utils/database';
-import { sign } from '../src/utils/jwt';
+import '../fixture';
+import { request } from '../request';
+import { database } from '../../src/utils/database';
+import { sign } from '../../src/utils/jwt';
 
 const insertCustomer = async (token: string) => {
   const response = await request()

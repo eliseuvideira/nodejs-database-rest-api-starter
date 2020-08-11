@@ -1,7 +1,7 @@
 import dotenv from 'dotenv-safe';
 dotenv.config();
 
-import { database } from '../../src/utils/database';
+import { database } from '../src/utils/database';
 
 beforeAll(async () => {
   await database.migrate.latest();
