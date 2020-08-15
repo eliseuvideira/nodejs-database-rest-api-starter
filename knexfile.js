@@ -1,4 +1,4 @@
-import dotenv from 'dotenv-safe';
+const dotenv = require('dotenv-safe');
 
 dotenv.config();
 

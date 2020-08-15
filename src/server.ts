@@ -44,6 +44,7 @@ const onListening = (): void => {
 
 (async (): Promise<void> => {
   await database.raw('SELECT 1 AS server_status');
+  await database.migrate.latest();
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
