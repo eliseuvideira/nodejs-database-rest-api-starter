@@ -18,4 +18,16 @@ export const createDatabase = ({
     migrations: {
       directory: join(__dirname, '..', '..', 'database', 'migrations'),
     },
+    log: {
+      warn(message) {
+        if (
+          typeof message === 'string' &&
+          message ===
+            'FS-related option specified for migration configuration. This resets migrationSource to default FsMigrations'
+        ) {
+          return;
+        }
+        console.warn(message);
+      },
+    },
   });
