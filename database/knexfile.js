@@ -1,6 +1,10 @@
 const dotenv = require('dotenv-safe');
+const { join } = require('path');
 
-dotenv.config();
+dotenv.config({
+  path: join(__dirname, '..', '.env'),
+  example: join(__dirname, '..', '.env.example'),
+});
 
 module.exports = {
   client: 'pg',
