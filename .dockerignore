@@ -1,6 +1,6 @@
 .git/
 build/
 coverage/
-database/
+database/data/
 node_modules/
 .env
