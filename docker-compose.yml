@@ -5,10 +5,7 @@ networks:
 
 services:
   api:
-    build:
-      context: .
-      args:
-        - PORT=$PORT
+    build: .
     depends_on:
       - postgres
     environment:
@@ -25,7 +22,6 @@ services:
     ports:
       - $PORT:$PORT
     restart: always
-
   postgres:
     image: clkao/postgres-plv8:12-2
     networks:
