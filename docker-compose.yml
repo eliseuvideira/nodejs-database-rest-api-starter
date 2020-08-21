@@ -22,6 +22,8 @@ services:
     ports:
       - $PORT:$PORT
     restart: always
+    volumes:
+      - ./storage:/usr/src/app/storage
   postgres:
     image: clkao/postgres-plv8:12-2
     networks:

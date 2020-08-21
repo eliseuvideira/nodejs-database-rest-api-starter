@@ -3,4 +3,6 @@ build/
 coverage/
 database/data/
 node_modules/
+storage/*
+!storage/.gitkeep
 .env

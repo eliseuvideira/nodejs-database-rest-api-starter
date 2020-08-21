@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 
 export const DB_HOST = process.env.DB_HOST || '';
@@ -11,3 +13,5 @@ export const DB_PASSWORD = process.env.DB_PASSWORD || '';
 export const DB_DATABASE = process.env.DB_DATABASE || '';
 
 export const JWT_SECRET = process.env.JWT_SECRET || '';
+
+export const STORAGE_PATH = join(__dirname, '..', '..', 'storage');

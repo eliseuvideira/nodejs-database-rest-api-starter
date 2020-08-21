@@ -1,5 +1,7 @@
-database/data/
 build/
-node_modules/
-.env
 coverage/
+database/data/
+node_modules/
+storage/*
+!storage/.gitkeep
+.env
