@@ -1,2 +1,1 @@
-knexfile.js
-migrations/
+database/

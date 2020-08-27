@@ -19,4 +19,7 @@ module.exports = {
     min: 2,
     max: 20,
   },
+  migrations: {
+    stub: 'stub.js',
+  },
 };
