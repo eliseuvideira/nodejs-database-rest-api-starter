@@ -22,4 +22,16 @@ module.exports = {
   migrations: {
     stub: 'stub.js',
   },
+  log: {
+    warn(message) {
+      if (
+        typeof message === 'string' &&
+        message ===
+          'FS-related option specified for migration configuration. This resets migrationSource to default FsMigrations'
+      ) {
+        return;
+      }
+      console.warn(message);
+    },
+  },
 };
