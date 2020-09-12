@@ -37,5 +37,4 @@ services:
     ports:
       - $DB_PORT:$DB_PORT
     volumes:
-      - ./database/initdb.d:/docker-entrypoint-initdb.d
       - ./database/data:/var/lib/postgresql/data
