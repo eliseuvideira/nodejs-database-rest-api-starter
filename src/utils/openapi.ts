@@ -38,7 +38,7 @@ const baseInfo = {
     title: name,
     version: version,
   },
-  servers: [{ name: 'localhost', url: `http://localhost:${process.env.PORT}` }],
+  servers: [{ name: 'localhost', url: `/` }],
 };
 
 export const openapi = {
