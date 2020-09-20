@@ -24,7 +24,7 @@ for (const route of routes) {
   app.use(require(join(__dirname, 'routes', route)).default);
 }
 
-app.use('/api-docs', serve, setup(openapi));
+app.use('/', serve, setup(openapi));
 
 app.use(notFound);
 app.use(exception);
