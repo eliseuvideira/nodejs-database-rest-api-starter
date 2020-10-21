@@ -4,16 +4,13 @@ import { HttpError } from '../utils/HttpError';
 
 const createRequestValidate = (key: 'body' | 'params' | 'query') => (
   schema: ObjectSchema,
-): RequestHandler => (req, res, next): void => {
+): RequestHandler => async (req, res, next) => {
   try {
-    const validationResult = schema.validate(req[key]);
-    if (validationResult.error) {
-      throw new HttpError(400, validationResult.error.message);
-    }
-    req[key] = validationResult.value;
+    const value = await schema.validateAsync(req[key]);
+    req[key] = value;
     next();
   } catch (err) {
-    next(err);
+    next(new HttpError(400, err.message));
   }
 };
 
