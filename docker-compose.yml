@@ -37,4 +37,7 @@ services:
     ports:
       - $DB_PORT:$DB_PORT
     volumes:
-      - ./database/data:/var/lib/postgresql/data
+      - postgres_volume:/var/lib/postgresql/data
+
+volumes:
+  postgres_volume:
