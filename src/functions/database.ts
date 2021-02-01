@@ -6,7 +6,6 @@ import {
   DB_USER,
   DB_PASSWORD,
   DB_DATABASE,
-  NODE_ENV,
 } from './constants';
 
 const MIN_POOL = 2;
@@ -19,7 +18,7 @@ export const database = knex({
     port: DB_PORT || 5432,
     user: DB_USER,
     password: DB_PASSWORD,
-    database: `${DB_DATABASE}${NODE_ENV === 'test' ? '_test' : ''}`,
+    database: `${DB_DATABASE}${process.env.NODE_ENV === 'test' ? '_test' : ''}`,
   },
   pool: {
     min: MIN_POOL,
