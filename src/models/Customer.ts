@@ -1,4 +1,4 @@
-import { createModel, createSearchQuery } from '../utils/createModel';
+import { createModel, createSearchQuery } from '../functions/createModel';
 
 export interface ICustomer {
   customerId?: number;

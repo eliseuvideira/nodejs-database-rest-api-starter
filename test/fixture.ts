@@ -2,9 +2,14 @@ import dotenv from '@ev-fns/dotenv';
 
 dotenv();
 
-import { database } from '../src/utils/database';
+import { database } from '../src/functions/database';
 import knex from 'knex';
-import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD } from '../src/utils/constants';
+import {
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASSWORD,
+} from '../src/functions/constants';
 
 const createDatabase = async (dbName: string) => {
   const postgres = knex({

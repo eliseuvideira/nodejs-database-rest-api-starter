@@ -1,5 +1,5 @@
 import { Customer, customerSearchQuery } from '../models/Customer';
-import { database } from '../utils/database';
+import { database } from '../functions/database';
 import { HttpError } from '@ev-fns/errors';
 import { endpoint } from '@ev-fns/endpoint';
 

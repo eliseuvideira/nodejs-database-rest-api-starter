@@ -4,7 +4,7 @@ dotenv(undefined, dotenv.startup);
 
 import server from '@ev-fns/server';
 import app from './app';
-import { database } from './utils/database';
+import { database } from './functions/database';
 
 const PORT = +(process.env.PORT || 0) || 3000;
 

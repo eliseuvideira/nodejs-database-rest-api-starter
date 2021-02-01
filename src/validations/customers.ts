@@ -1,4 +1,4 @@
-import { createSchema, createSchemaSearch } from '../utils/createSchema';
+import { createSchema, createSchemaSearch } from '../functions/createSchema';
 import { ICustomer, Customer } from '../models/Customer';
 import Joi from 'joi';
 

@@ -4,9 +4,9 @@ dotenv();
 
 import '../fixture';
 import { request } from '../request';
-import { database } from '../../src/utils/database';
+import { database } from '../../src/functions/database';
 import { encode } from '@ev-fns/jwt';
-import { JWT_SECRET } from '../../src/utils/constants';
+import { JWT_SECRET } from '../../src/functions/constants';
 
 const insertCustomer = async (token: string) => {
   const response = await request()
