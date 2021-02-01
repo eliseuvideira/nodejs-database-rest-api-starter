@@ -294,6 +294,77 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@ev-fns/dotenv@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/dotenv/-/dotenv-0.2.1.tgz#d6a823891dd8f2a704786053a2bfd2d19c104e47"
+  integrity sha512-qj4fUubjaFuDrT8sJIS3xVVdSkqj0wF3F+Y0sDl/aRYfRqHvIguKlbIGjFmTxMdSGbyIi6GTgHb2Av2kXFxeIA==
+  dependencies:
+    "@types/dotenv-safe" "^8.1.1"
+    dotenv "^8.2.0"
+    dotenv-safe "^8.2.0"
+
+"@ev-fns/endpoint@^0.1.0", "@ev-fns/endpoint@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/endpoint/-/endpoint-0.1.1.tgz#ab73c7b7d7c27901f53eac68c083aa89508900c7"
+  integrity sha512-vMwlTOd3MnECPkyPt38/J/X0iXn3QwXMW/IP9S71mugZfQ1uxf09zei7C5mOHOsODhKgasdvvzuxr/fLXeJMaQ==
+  dependencies:
+    express "^4.17.1"
+
+"@ev-fns/errors@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ev-fns/errors/-/errors-0.1.0.tgz#74f7b99d6948cfaa0e09ba11fbb3ecd4de89fc3c"
+  integrity sha512-gB4Fik67DFzmKC7k9mAxxj/cwi/FlnLuzmlztE1+e7GjIZ5X4vaasydOSjDFoRjCGR+m5v/XHuEvZs/dtgSF4w==
+  dependencies:
+    express "^4.17.1"
+
+"@ev-fns/jwt@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/jwt/-/jwt-0.1.1.tgz#62947f2958d5a2ed140e8b3c353b4fbddcd263a8"
+  integrity sha512-6QTd2M6Ox9EDnb4uQEbjPcID6nhhw3yOtGGKyG7ODetPTEJJoCvRXFpDweAxJa0CgS02gv2M/X9k2MCz2DiDeg==
+  dependencies:
+    "@ev-fns/endpoint" "^0.1.0"
+    "@ev-fns/errors" "^0.1.0"
+    express "^4.17.1"
+    jsonwebtoken "^8.5.1"
+
+"@ev-fns/object-fns@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/object-fns/-/object-fns-0.1.1.tgz#7cbc38865a7bc910e484bb874966edecd694aac8"
+  integrity sha512-bWTT/nAb+x794SOgmyR77WdNb8SnJ0FcStvcV4boOM7jRT0LYSdSjkQA8dpiHIWQxnZkNZuHx0iN7dCWTB/V4Q==
+  dependencies:
+    "@ev-fns/string-fns" "^0.1.0"
+
+"@ev-fns/openapi@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@ev-fns/openapi/-/openapi-0.1.4.tgz#de065df7a2ecb8a6e48e588a2d82d0676b6a0c40"
+  integrity sha512-pRiWH8l1nMuuR26CFH7CehOnWzvy0SgddyeM3q39nO96nfxmXaRFh9tasVpF9+2/MK+wzM+ELcxir9hDKTBeDg==
+  dependencies:
+    app-root-path "^3.0.0"
+    express "^4.17.1"
+    openapi-comment-parser "^1.0.0"
+    swagger-ui-express "^4.1.6"
+
+"@ev-fns/server@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/server/-/server-0.1.1.tgz#9080550124c196e4d45f459cc2e449cb599da2db"
+  integrity sha512-NYBwCOmANJ0EqTWbOV//fAp7rOWn3rkoH7vYdJBPCa5iyggL/pmghY/3RRg7aFhqCo8AdtLnfBZU2vLXUtYMRA==
+  dependencies:
+    express "^4.17.1"
+
+"@ev-fns/string-fns@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ev-fns/string-fns/-/string-fns-0.1.0.tgz#424d998a3da51be47b8348f81814808a89a89288"
+  integrity sha512-TqZXbJEH39gpSi5ddqDPymT2geHyDEa7pSz5IPzwmUPkwdS0W6GhC2y/q80sDUpHvoxRCNwoEa1q8LTzuCGOMw==
+
+"@ev-fns/validation@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ev-fns/validation/-/validation-0.1.0.tgz#034cdea360e95aa7dfbdfc87304ac755e36fe04d"
+  integrity sha512-si5gu8uOXjZkeGqKrmVeyv+TGeGsmIM5feaz74R7E6n0fgYj/31bOXTWY3CQ+OcabbV1xG0GewaotUkLCX3N9g==
+  dependencies:
+    "@ev-fns/endpoint" "^0.1.1"
+    "@ev-fns/errors" "^0.1.0"
+    joi "^17.3.0"
+
 "@hapi/hoek@^9.0.0":
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
@@ -989,6 +1060,11 @@ anymatch@^3.0.3, anymatch@~3.1.1:
   dependencies:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
+
+app-root-path@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-3.0.0.tgz#210b6f43873227e18a4b810a032283311555d5ad"
+  integrity sha512-qMcx+Gy2UZynHjOHOIXPNvpf+9cjvk3cWrBBK7zg4gH9+clobJRb9NGzcT7mQTcV/6Gm/1WelUtqxVXnNlrwcw==
 
 append-field@^1.0.0:
   version "1.0.0"

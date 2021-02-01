@@ -1,4 +1,4 @@
-import { camelToSnake } from './toSnake';
+import { camelToSnake } from '@ev-fns/string-fns';
 
 export interface OrderByField {
   column: string;

@@ -1,6 +1,6 @@
-import dotenv from 'dotenv-safe';
+import dotenv from '@ev-fns/dotenv';
 
-dotenv.config();
+dotenv();
 
 describe('constants', () => {
   it("doesn't return undefined constants", () => {

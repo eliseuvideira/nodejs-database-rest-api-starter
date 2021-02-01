@@ -1,7 +1,12 @@
+import dotenv from '@ev-fns/dotenv';
+
+dotenv();
+
 import '../fixture';
 import { request } from '../request';
 import { database } from '../../src/utils/database';
-import { sign } from '../../src/utils/jwt';
+import { encode } from '@ev-fns/jwt';
+import { JWT_SECRET } from '../../src/utils/constants';
 
 const insertCustomer = async (token: string) => {
   const response = await request()
@@ -18,7 +23,7 @@ describe('customers', () => {
   let token: string;
 
   beforeAll(async () => {
-    token = await sign({});
+    token = await encode({}, JWT_SECRET);
   });
 
   afterEach(async () => {
@@ -58,7 +63,11 @@ describe('customers', () => {
       .set({ Authorization: `Bearer ${token}` })
       .send({ name: 'new name' });
     expect(response.status).toBe(200);
-    expect(response.body.customer).toEqual({ ...customer, name: 'new name' });
+    expect(response.body.customer).toEqual({
+      ...customer,
+      name: 'new name',
+      updatedAt: response.body.customer.updatedAt,
+    });
   });
 
   test('DELETE /customers/:customerId', async () => {

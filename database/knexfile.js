@@ -1,7 +1,7 @@
-const dotenv = require('dotenv-safe');
+const dotenv = require('@ev-fns/dotenv');
 const { join } = require('path');
 
-dotenv.config({
+dotenv({
   path: join(__dirname, '..', '.env'),
   example: join(__dirname, '..', '.env.example'),
 });
@@ -21,17 +21,5 @@ module.exports = {
   },
   migrations: {
     stub: 'stub.js',
-  },
-  log: {
-    warn(message) {
-      if (
-        typeof message === 'string' &&
-        message ===
-          'FS-related option specified for migration configuration. This resets migrationSource to default FsMigrations'
-      ) {
-        return;
-      }
-      console.warn(message);
-    },
   },
 };

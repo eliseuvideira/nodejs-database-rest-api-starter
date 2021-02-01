@@ -1,7 +1,6 @@
 import Knex, { QueryBuilder } from 'knex';
-import { toSnake, camelToSnake } from './toSnake';
-import { toCamel } from './toCamel';
-import { removeKeys } from './removeKeys';
+import { camelToSnake } from '@ev-fns/string-fns';
+import { toCamel, toSnake, removeKeys } from '@ev-fns/object-fns';
 import { getOrderBy, orderByToSnake } from './getOrderBy';
 
 type PropsToArray<T> = {
@@ -79,7 +78,13 @@ export type Model<T> = {
 };
 
 export const getWhere = <T>(filter: FilterProps<T>): Partial<T> =>
-  removeKeys(filter, ['$in', '$like', '$limit', '$offset', '$sort']);
+  removeKeys(filter, [
+    '$in',
+    '$like',
+    '$limit',
+    '$offset',
+    '$sort',
+  ]) as Partial<T>;
 
 const applyLike = <T>(
   builder: Knex.QueryBuilder,
@@ -148,8 +153,12 @@ const createFind = <T>(
     .from(table)
     .where(toSnake(getWhere(filter || {})))
     .modify(getModify(modify, filter));
-  return rows.map((row) =>
-    removeKeys(toCamel(row) as T, (ignoreKeys && ignoreKeys.select) || []),
+  return rows.map(
+    (row) =>
+      removeKeys(
+        toCamel(row) as T,
+        (ignoreKeys && ignoreKeys.select) || [],
+      ) as T,
   );
 };
 
@@ -169,7 +178,10 @@ const createFindOne = <T>(
   if (!row) {
     return null;
   }
-  return removeKeys(toCamel(row) as T, (ignoreKeys && ignoreKeys.select) || []);
+  return removeKeys(
+    toCamel(row) as T,
+    (ignoreKeys && ignoreKeys.select) || [],
+  ) as T;
 };
 
 const createCount = <T>(table: string): ModelCount<T> => async (
@@ -187,7 +199,7 @@ const createCount = <T>(table: string): ModelCount<T> => async (
           '$sort',
           '$limit',
           '$offset',
-        ]),
+        ]) as T,
       ),
     )
     .count()
@@ -217,7 +229,7 @@ const createInsertOne = <T>(
   return removeKeys(
     toCamel(savedModel) as T,
     (ignoreKeys && ignoreKeys.select) || [],
-  );
+  ) as T;
 };
 
 const createUpdateOne = <T>(
@@ -235,7 +247,7 @@ const createUpdateOne = <T>(
   return removeKeys(
     toCamel(savedModel) as T,
     (ignoreKeys && ignoreKeys.select) || [],
-  );
+  ) as T;
 };
 
 const createDeleteOne = <T>(

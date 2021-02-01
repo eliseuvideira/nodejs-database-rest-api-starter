@@ -5,8 +5,8 @@ import {
   getCustomer,
   putCustomer,
   deleteCustomer,
-} from '../controllers/customers';
-import { query, body, params } from '../middlewares/validation';
+} from '../endpoints/customers';
+import { query, body, params } from '@ev-fns/validation';
 import {
   getCustomersQuery,
   postCustomersBody,

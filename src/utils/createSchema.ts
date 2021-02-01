@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import { Model } from './createModel';
-import { removeKeys } from './removeKeys';
+import { removeKeys } from '@ev-fns/object-fns';
 
 const PAGINATION_ITEMS_PER_PAGE =
   +(process.env.PAGINATION_ITEMS_PER_PAGE || 0) || 50;

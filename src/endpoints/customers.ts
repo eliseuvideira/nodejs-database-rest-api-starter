@@ -1,9 +1,9 @@
 import { Customer, customerSearchQuery } from '../models/Customer';
 import { database } from '../utils/database';
-import { HttpError } from '../utils/HttpError';
-import { controller } from '../utils/controller';
+import { HttpError } from '@ev-fns/errors';
+import { endpoint } from '@ev-fns/endpoint';
 
-export const getCustomers = controller(async (req, res) => {
+export const getCustomers = endpoint(async (req, res) => {
   const [customers, filter, pagination] = await customerSearchQuery(
     req.query,
     database,
@@ -11,13 +11,13 @@ export const getCustomers = controller(async (req, res) => {
   res.status(200).json({ customers, filter, pagination });
 });
 
-export const postCustomers = controller(async (req, res) => {
+export const postCustomers = endpoint(async (req, res) => {
   const customerData = req.body;
   const customer = await Customer.insertOne(database, customerData);
   res.status(201).json({ customer });
 });
 
-export const getCustomer = controller(async (req, res) => {
+export const getCustomer = endpoint(async (req, res) => {
   const { customerId } = (req.params as unknown) as { customerId: number };
   const customer = await Customer.findOne(database, { customerId });
   if (!customer) {
@@ -26,7 +26,7 @@ export const getCustomer = controller(async (req, res) => {
   res.status(200).json({ customer });
 });
 
-export const putCustomer = controller(async (req, res) => {
+export const putCustomer = endpoint(async (req, res) => {
   const { customerId } = (req.params as unknown) as { customerId: number };
   const customer = await Customer.findOne(database, { customerId });
   if (!customer) {
@@ -40,7 +40,7 @@ export const putCustomer = controller(async (req, res) => {
   res.status(200).json({ customer: updatedCustomer });
 });
 
-export const deleteCustomer = controller(async (req, res) => {
+export const deleteCustomer = endpoint(async (req, res) => {
   const { customerId } = (req.params as unknown) as { customerId: number };
   const customer = await Customer.findOne(database, { customerId });
   if (!customer) {

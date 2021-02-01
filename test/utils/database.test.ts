@@ -1,6 +1,6 @@
-import dotenv from 'dotenv-safe';
+import dotenv from '@ev-fns/dotenv';
 
-dotenv.config();
+dotenv();
 
 import { database } from '../../src/utils/database';
 import {
