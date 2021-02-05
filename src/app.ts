@@ -11,7 +11,7 @@ import { notFound, exception } from '@ev-fns/errors';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ exposedHeaders: ['x-total-count'] }));
 app.use(json());
 app.use(morgan('combined', { skip: () => process.env.NODE_ENV === 'test' }));
 app.use(helmet());

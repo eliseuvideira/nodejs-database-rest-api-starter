@@ -327,10 +327,28 @@
     express "^4.17.1"
     jsonwebtoken "^8.5.1"
 
+"@ev-fns/model@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ev-fns/model/-/model-0.3.0.tgz#434d039d4f25099e17436055767041af67ed6961"
+  integrity sha512-rd4Ug4h6Bd/a/JbkFOVvXOrmU5C1VIs0vXilVrV30szHngLnrJ8+4X8CZ5HuxGhVEN13fjmQf7Aj+kqnOx+JjQ==
+  dependencies:
+    "@ev-fns/dotenv" "^0.2.1"
+    "@ev-fns/object-fns" "^0.2.1"
+    "@ev-fns/string-fns" "^0.1.0"
+    joi "^17.3.0"
+    knex "^0.21.17"
+
 "@ev-fns/object-fns@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@ev-fns/object-fns/-/object-fns-0.1.1.tgz#7cbc38865a7bc910e484bb874966edecd694aac8"
   integrity sha512-bWTT/nAb+x794SOgmyR77WdNb8SnJ0FcStvcV4boOM7jRT0LYSdSjkQA8dpiHIWQxnZkNZuHx0iN7dCWTB/V4Q==
+  dependencies:
+    "@ev-fns/string-fns" "^0.1.0"
+
+"@ev-fns/object-fns@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/object-fns/-/object-fns-0.2.1.tgz#b82ff12f63f9d266fc64e9f516d8b5d75a9a3868"
+  integrity sha512-W5Ck0vxxy/mFCYUjRRdMXRccj7qZ+Fvz71KglHJCgGpaOLXwNXhs3wy/O4vmtYPX5Ob69wzNnENcoI9PMwYbBg==
   dependencies:
     "@ev-fns/string-fns" "^0.1.0"
 
@@ -3682,10 +3700,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-knex@^0.21.16:
-  version "0.21.16"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-0.21.16.tgz#5431efe66d7194cdcf34ba3a874c6c66d7229c1a"
-  integrity sha512-M3FTFfby49AEngsx/0UXEJEMnKMjPjeKOtvk+AY6d6kboz9NsT7xDudl0wRNj+S0lq0yearCSb1v+YxgbU/kWA==
+knex@^0.21.17:
+  version "0.21.17"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-0.21.17.tgz#f99f5b90132b9bb9c6eb5c81f0a035e0232c870f"
+  integrity sha512-kAt58lRwjzqwedApKF7luYPa7HsLb0oDiczwKrkZcekIzTmSow5YGK149S2C8HjH63R3NcOBo9+1rjvWnC1Paw==
   dependencies:
     colorette "1.2.1"
     commander "^6.2.0"
@@ -5218,9 +5236,9 @@ source-map-support@^0.5.12, source-map-support@^0.5.17, source-map-support@^0.5.
     source-map "^0.6.0"
 
 source-map-url@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
-  integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
+  integrity sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==
 
 source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"

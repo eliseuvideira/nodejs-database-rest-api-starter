@@ -1,4 +1,4 @@
-import { createModel, createSearchQuery } from '../functions/createModel';
+import { createModel } from '@ev-fns/model';
 
 export interface ICustomer {
   customerId?: number;
@@ -18,5 +18,3 @@ export const Customer = createModel<ICustomer>(
     update: ['customerId', 'createdAt', 'updatedAt'],
   },
 );
-
-export const customerSearchQuery = createSearchQuery<ICustomer>(Customer);

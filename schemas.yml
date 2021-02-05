@@ -8,3 +8,51 @@ components:
           example: Internal server error
       required:
         - message
+
+    Customer:
+      type: object
+      properties:
+        customerId:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: John Doe
+        createdAt:
+          type: string
+          format: date-time
+          example: 2020-08-25T13:34:02.241Z
+        updatedAt:
+          type: string
+          format: date-time
+          example: 2020-08-25T13:34:02.911Z
+      required:
+        - customerId:
+        - name
+        - createdAt
+        - updatedAt
+
+    CustomerPostBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: John Doe
+      required:
+        - name
+
+    CustomerPutBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: John Doe
+      required:
+        - name
+
+    CustomerPatchBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: John Doe
