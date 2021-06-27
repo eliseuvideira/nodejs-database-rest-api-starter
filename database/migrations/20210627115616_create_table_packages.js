@@ -13,8 +13,8 @@ exports.up = async (knex) => {
     table.text("homepage").notNullable();
     table.text("repository").notNullable();
     table.integer("downloads").notNullable();
-    table.dateTime("created_at").notNullable();
-    table.dateTime("updated_at").notNullable();
+    table.dateTime("created_at").notNullable().defaultTo(knex.fn.now());
+    table.dateTime("updated_at").notNullable().defaultTo(knex.fn.now());
   });
 
   await setUpdatedAt(knex, "packages");

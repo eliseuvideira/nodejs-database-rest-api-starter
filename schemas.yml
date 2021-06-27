@@ -53,3 +53,28 @@ components:
         author:
           type: string
           example: Herman Melville
+
+    packagesPostRequestBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: webpack
+        version:
+          type: string
+          example: 5.40.0
+        license:
+          type: string
+          example: MIT
+        description:
+          type: string
+          example: Packs CommonJs/AMD modules for the browser.
+        homepage:
+          type: string
+          example: https://github.com/webpack/webpack
+        repository:
+          type: string
+          example: git+https://github.com/webpack/webpack.git
+        downloads:
+          type: number
+          example: 16174198

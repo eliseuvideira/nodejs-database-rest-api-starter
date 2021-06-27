@@ -393,6 +393,11 @@
     "@ev-fns/errors" "^0.1.1"
     joi "^17.3.0"
 
+"@ev-postgres/model@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ev-postgres/model/-/model-0.1.0.tgz#3a848641d6d4baaf8069652cd1b65adc72d25ce4"
+  integrity sha512-Lwd5dxTgVrqGBAZn3g+f6btWlZRWZgLauQk3sko+Hzg2C+snPSW7SE4bN7czIep+a1cy0lFOoz8Ondkz4nHtrg==
+
 "@hapi/hoek@^9.0.0":
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
