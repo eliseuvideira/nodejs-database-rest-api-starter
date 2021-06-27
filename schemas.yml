@@ -1,11 +1,11 @@
 components:
   securitySchemes:
-    bearerAuth:
+    BearerAuth:
       type: http
       scheme: bearer
 
   schemas:
-    error:
+    Error:
       type: object
       properties:
         message:
@@ -14,7 +14,7 @@ components:
       required:
         - message
 
-    book:
+    Book:
       type: object
       properties:
         bookId:
@@ -31,7 +31,7 @@ components:
         - title
         - author
 
-    booksPostRequestBody:
+    BookPostRequestBody:
       type: object
       properties:
         title:
@@ -44,7 +44,7 @@ components:
         - title
         - author
 
-    booksPatchRequestBody:
+    BookPatchRequestBody:
       type: object
       properties:
         title:
@@ -54,7 +54,7 @@ components:
           type: string
           example: Herman Melville
 
-    packagesPostRequestBody:
+    Package:
       type: object
       properties:
         name:
@@ -62,19 +62,94 @@ components:
           example: webpack
         version:
           type: string
-          example: 5.40.0
-        license:
-          type: string
-          example: MIT
+          example: "5.40.0"
         description:
           type: string
           example: Packs CommonJs/AMD modules for the browser.
-        homepage:
+        license:
           type: string
-          example: https://github.com/webpack/webpack
+          example: MIT
         repository:
           type: string
           example: git+https://github.com/webpack/webpack.git
+        homepage:
+          type: string
+          example: https://github.com/webpack/webpack
+        node_version:
+          type: string
+          example: ">=0.10.0"
         downloads:
           type: number
-          example: 16174198
+          example: 16187928
+      required:
+        - name
+        - version
+        - description
+        - license
+        - repository
+        - homepage
+        - downloads
+
+    PackagePostRequestBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: webpack
+        version:
+          type: string
+          example: "5.40.0"
+        description:
+          type: string
+          example: Packs CommonJs/AMD modules for the browser.
+        license:
+          type: string
+          example: MIT
+        repository:
+          type: string
+          example: git+https://github.com/webpack/webpack.git
+        homepage:
+          type: string
+          example: https://github.com/webpack/webpack
+        node_version:
+          type: string
+          example: ">=0.10.0"
+        downloads:
+          type: number
+          example: 16187928
+      required:
+        - name
+        - version
+        - description
+        - license
+        - repository
+        - homepage
+        - downloads
+
+    PackagePatchRequestBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: webpack
+        version:
+          type: string
+          example: "5.40.0"
+        description:
+          type: string
+          example: Packs CommonJs/AMD modules for the browser.
+        license:
+          type: string
+          example: MIT
+        repository:
+          type: string
+          example: git+https://github.com/webpack/webpack.git
+        homepage:
+          type: string
+          example: https://github.com/webpack/webpack
+        node_version:
+          type: string
+          example: ">=0.10.0"
+        downloads:
+          type: number
+          example: 16187928

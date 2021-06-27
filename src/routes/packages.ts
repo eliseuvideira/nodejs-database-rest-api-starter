@@ -5,12 +5,12 @@ const router = Router();
 
 /**
  * POST /packages
- * @tag packages
- * @bodyContent {packagesPostRequestBody} application/json
+ * @tag Packages
+ * @bodyContent {PackagePostRequestBody} application/json
  * @response 201
- * @responseContent {package} 201.application/json
+ * @responseContent {Package} 201.application/json
  * @response default
- * @responseContent {error} default.application/json
+ * @responseContent {Error} default.application/json
  */
 router.post("/packages", packagesPostOne);
 
