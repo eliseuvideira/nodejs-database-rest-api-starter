@@ -44,8 +44,10 @@
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "joi": "^17.4.0",
+    "knex": "^0.95.6",
     "moment": "^2.29.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0"
   },
   "scripts": {
     "build": "tsc",
@@ -55,13 +57,18 @@
     "docker-push": "./.docker-push",
     "format": "prettier --write 'src/**/*'",
     "lint": "eslint --max-warnings=0 'src/**/*'",
+    "migrate-down": "knex --knexfile ./database/knexfile.js migrate:down",
+    "migrate-latest": "knex --knexfile ./database/knexfile.js migrate:latest",
+    "migrate-make": "knex --knexfile ./database/knexfile.js migrate:make",
+    "migrate-rollback": "knex --knexfile ./database/knexfile.js migrate:rollback",
+    "migrate-up": "knex --knexfile ./database/knexfile.js migrate:up",
     "prepare": "husky install",
     "start": "node build/server.js",
     "test": "jest",
     "watch": "jest --watch"
   },
   "lint-staged": {
-    "*.{js,ts}": [
+    "*.ts": [
       "eslint --max-warnings=0",
       "prettier --check"
     ]
