@@ -54,6 +54,16 @@ export const packagesPatchOne = endpoint(async (req, res) => {
 
   const newPkg = req.body;
 
+  if (newPkg.name && newPkg.name !== instance.name) {
+    const exists = await Package.exists({
+      database,
+      filter: { $eq: { name: newPkg.name } },
+    });
+    if (exists) {
+      throw new HttpError(409, `package name "${pkg.name}" already exists`);
+    }
+  }
+
   await database.transaction(async (database) => {
     pkg = await Package.updateOne({ database, instance }, newPkg);
   });

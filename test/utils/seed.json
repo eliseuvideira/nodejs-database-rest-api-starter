@@ -1,0 +1,188 @@
+[
+  {
+    "name": "webpack",
+    "version": "5.40.0",
+    "description": "Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.",
+    "license": "MIT",
+    "repository": "git+https://github.com/webpack/webpack.git",
+    "homepage": "https://github.com/webpack/webpack",
+    "node_version": ">=10.13.0",
+    "downloads": 16187928
+  },
+  {
+    "name": "react",
+    "version": "17.0.2",
+    "description": "React is a JavaScript library for building user interfaces.",
+    "license": "MIT",
+    "repository": "git+https://github.com/facebook/react.git",
+    "homepage": "https://reactjs.org/",
+    "node_version": ">=0.10.0",
+    "downloads": 10802421
+  },
+  {
+    "name": "vue",
+    "version": "2.6.14",
+    "description": "Reactive, component-oriented view layer for modern web interfaces.",
+    "license": "MIT",
+    "repository": "git+https://github.com/vuejs/vue.git",
+    "homepage": "https://github.com/vuejs/vue#readme",
+    "downloads": 2514262
+  },
+  {
+    "name": "yarn",
+    "version": "1.22.10",
+    "description": "📦🐈 Fast, reliable, and secure dependency management.",
+    "license": "BSD-2-Clause",
+    "repository": "git+https://github.com/yarnpkg/yarn.git",
+    "homepage": "https://github.com/yarnpkg/yarn#readme",
+    "node_version": ">=4.0.0",
+    "downloads": 2146014
+  },
+  {
+    "name": "lerna",
+    "version": "4.0.0",
+    "description": "A tool for managing JavaScript projects with multiple packages.",
+    "license": "MIT",
+    "repository": "git+https://github.com/lerna/lerna.git",
+    "homepage": "https://github.com/lerna/lerna#readme",
+    "node_version": ">= 10.18.0",
+    "downloads": 1195666
+  },
+  {
+    "name": "knex",
+    "version": "0.95.6",
+    "description": "A batteries-included SQL query & schema builder for Postgres, MySQL and SQLite3 and the Browser",
+    "license": "MIT",
+    "repository": "git://github.com/knex/knex.git",
+    "homepage": "https://knexjs.org",
+    "node_version": ">=10",
+    "downloads": 736131
+  },
+  {
+    "name": "pg",
+    "version": "8.6.0",
+    "description": "PostgreSQL client - pure javascript & libpq with the same API",
+    "license": "MIT",
+    "repository": "git://github.com/brianc/node-postgres.git",
+    "homepage": "https://github.com/brianc/node-postgres",
+    "node_version": ">= 8.0.0",
+    "downloads": 2076609
+  },
+  {
+    "name": "eslint",
+    "version": "7.29.0",
+    "description": "An AST-based pattern checker for JavaScript.",
+    "license": "MIT",
+    "repository": "git+https://github.com/eslint/eslint.git",
+    "homepage": "https://eslint.org",
+    "node_version": "^10.12.0 || >=12.0.0",
+    "downloads": 18137817
+  },
+  {
+    "name": "babel",
+    "version": "6.23.0",
+    "description": "Turn ES6 code into readable vanilla ES5 with source maps",
+    "license": "MIT",
+    "repository": "https://github.com/babel/babel/tree/master/packages/babel",
+    "homepage": "https://babeljs.io/",
+    "downloads": 127174
+  },
+  {
+    "name": "jest",
+    "version": "27.0.5",
+    "description": "Delightful JavaScript Testing.",
+    "license": "MIT",
+    "repository": "git+https://github.com/facebook/jest.git",
+    "homepage": "https://jestjs.io/",
+    "node_version": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0",
+    "downloads": 12084251
+  },
+  {
+    "name": "typescript",
+    "version": "4.3.4",
+    "description": "TypeScript is a language for application scale JavaScript development",
+    "license": "Apache-2.0",
+    "repository": "git+https://github.com/Microsoft/TypeScript.git",
+    "homepage": "https://www.typescriptlang.org/",
+    "node_version": ">=4.2.0",
+    "downloads": 20289935
+  },
+  {
+    "name": "express",
+    "version": "4.17.1",
+    "description": "Fast, unopinionated, minimalist web framework",
+    "license": "MIT",
+    "repository": "git+https://github.com/expressjs/express.git",
+    "homepage": "http://expressjs.com/",
+    "node_version": ">= 0.10.0",
+    "downloads": 17026086
+  },
+  {
+    "name": "dotenv",
+    "version": "10.0.0",
+    "description": "Loads environment variables from .env file",
+    "license": "BSD-2-Clause",
+    "repository": "git://github.com/motdotla/dotenv.git",
+    "homepage": "https://github.com/motdotla/dotenv#readme",
+    "node_version": ">=10",
+    "downloads": 17382616
+  },
+  {
+    "name": "joi",
+    "version": "17.4.0",
+    "description": "Object schema validation",
+    "license": "BSD-3-Clause",
+    "repository": "git://github.com/sideway/joi.git",
+    "homepage": "https://github.com/sideway/joi#readme",
+    "downloads": 3674195
+  },
+  {
+    "name": "node-fetch",
+    "version": "2.6.1",
+    "description": "A light-weight module that brings window.fetch to node.js",
+    "license": "MIT",
+    "repository": "git+https://github.com/bitinn/node-fetch.git",
+    "homepage": "https://github.com/bitinn/node-fetch",
+    "node_version": "4.x || >=6.0.0",
+    "downloads": 20715675
+  },
+  {
+    "name": "react-dom",
+    "version": "17.0.2",
+    "description": "React package for working with the DOM.",
+    "license": "MIT",
+    "repository": "git+https://github.com/facebook/react.git",
+    "homepage": "https://reactjs.org/",
+    "downloads": 9773307
+  },
+  {
+    "name": "graphql",
+    "version": "15.5.1",
+    "description": "A Query Language and Runtime which can target any service.",
+    "license": "MIT",
+    "repository": "git+https://github.com/graphql/graphql-js.git",
+    "homepage": "https://github.com/graphql/graphql-js",
+    "node_version": ">= 10.x",
+    "downloads": 5473558
+  },
+  {
+    "name": "prettier",
+    "version": "2.3.2",
+    "description": "Prettier is an opinionated code formatter",
+    "license": "MIT",
+    "repository": "git+https://github.com/prettier/prettier.git",
+    "homepage": "https://prettier.io",
+    "node_version": ">=10.13.0",
+    "downloads": 14957528
+  },
+  {
+    "name": "cors",
+    "version": "2.8.5",
+    "description": "Node.js CORS middleware",
+    "license": "MIT",
+    "repository": "git+https://github.com/expressjs/cors.git",
+    "homepage": "https://github.com/expressjs/cors#readme",
+    "node_version": ">= 0.10",
+    "downloads": 5445872
+  }
+]
